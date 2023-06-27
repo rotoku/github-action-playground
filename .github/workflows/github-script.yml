@@ -12,9 +12,13 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: "🎉 You've created this issue comment using GitHub Script!!!"
-            })    
+            console.log(`context.issue.number: ${context.issue.number}`)
+            console.log(`context.repo.owner: ${context.repo.owner}`)
+            console.log(`context.repo.repo: ${context.repo.repo}`)
+          # script: |
+          #   github.issues.createComment({
+          #     issue_number: context.issue.number,
+          #     owner: context.repo.owner,
+          #     repo: context.repo.repo,
+          #     body: "🎉 You've created this issue comment using GitHub Script!!!"
+          #   })    
