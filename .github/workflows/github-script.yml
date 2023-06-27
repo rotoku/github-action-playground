@@ -8,13 +8,20 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@0.8.0
+      - uses: actions/checkout@v3
+      - uses: actions/github-script@v6
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          # github-token: ${{secrets.TOKEN}}          
           script: |
-            github.issues.createComment({
+            github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: "🎉 You've created this issue comment using GitHub Script!!!"
-            })    
+            })
+
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const script = require('./app/src/index.js')
+            console.log(script({github, context}))

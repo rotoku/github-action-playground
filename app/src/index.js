@@ -1,2 +1,3 @@
-const core = require('@actions/core');
-const github = require('@actions/github');
+module.exports = ({github, context}) => {
+    return JSON.stringify(github.context.payload, undefined, 2);
+}
