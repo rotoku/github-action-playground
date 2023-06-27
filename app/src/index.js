@@ -1,3 +1,3 @@
 module.exports = ({github, context}) => {
-    return JSON.stringify(github.context.payload, undefined, 2);
+    return JSON.stringify(context.payload, undefined, 2);
 }
