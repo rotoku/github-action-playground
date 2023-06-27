@@ -15,6 +15,7 @@ jobs:
             console.log(`context.issue.number: ${context.issue.number}`)
             console.log(`context.repo.owner: ${context.repo.owner}`)
             console.log(`context.repo.repo: ${context.repo.repo}`)
+            console.log(JSON.stringify(github.issues, undefined, 2));
           # script: |
           #   github.issues.createComment({
           #     issue_number: context.issue.number,
