@@ -8,14 +8,11 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v6
+      - uses: actions/github-script@0.8.0
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            console.log(`context.issue.number: ${context.issue.number}`)
-            console.log(`context.repo.owner: ${context.repo.owner}`)
-            console.log(`context.repo.repo: ${context.repo.repo}`)          
-            github.rest.issues.createComment({
+            github.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
